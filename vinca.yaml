@@ -199,9 +199,9 @@ packages_select_by_deps:
   - launch_param_builder
   - moveit_visual_tools
 
+  # robotiq_driver and robotiq_hardware_tests are not released for jazzy
   - robotiq_controllers
-  - robotic_drivers
-  - robotiq_hardware_tests
+  - robotiq_description
 
   - rqt_robot_monitor
 
@@ -254,16 +254,16 @@ packages_select_by_deps:
 
       - septentrio_gnss_driver
 
-  - if: linux-64
+  - if: linux and x86_64
     then:
       # Kinova
-      # Hardcoded linux only: https://github.com/Kinovarobotics/ros2_kortex/blob/1fdbef345954b326627dc3792981e18e2221450b/kortex_api/CMakeLists.txt#L22
+      # Hardcoded linux x86_64 only: https://github.com/Kinovarobotics/ros2_kortex/blob/1fdbef345954b326627dc3792981e18e2221450b/kortex_api/CMakeLists.txt#L22
       - kortex_api
       - kortex_bringup
       - kortex_driver
-      - kortex_gen3_7dof_robotiq_2f_85_moveit_config
-      - kortex_gen3_6dof_2f_85_moveit_config
-      - kortex_gen3_lite_moveit_config
+      - kinova_gen3_7dof_robotiq_2f_85_moveit_config
+      - kinova_gen3_6dof_robotiq_2f_85_moveit_config
+      - kinova_gen3_lite_moveit_config
 
   # These packages are currently only build on Linux, but they currently only build on
   # Linux as trying to build them in the past on macos or Windows resulted in errors

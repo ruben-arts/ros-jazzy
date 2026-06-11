@@ -113,6 +113,10 @@ jobs:
       shell: bash -l {0}
       run: |
         # rm -rf ${{ matrix.folder_cache }}/ros-jazzy-<pkg>* || true
+        # remove kortex packages built from the humble release (now built from jazzy 0.2.6)
+        rm -rf ${{ matrix.folder_cache }}/ros-jazzy-kortex-api* || true
+        rm -rf ${{ matrix.folder_cache }}/ros-jazzy-kortex-bringup* || true
+        rm -rf ${{ matrix.folder_cache }}/ros-jazzy-kortex-driver* || true
         pixi run rattler-index fs output --force
         exit 0
 
